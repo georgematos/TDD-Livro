@@ -1,4 +1,5 @@
 # Individual Files #
+.gitignore
 
 # Bin Files #
 *.class
