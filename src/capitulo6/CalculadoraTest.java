@@ -22,4 +22,5 @@ public class CalculadoraTest {
 	}
 	
 	// Comentario feito no branch master
+
 }
