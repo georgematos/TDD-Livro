@@ -2,14 +2,22 @@ package capitulo5;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CarrinhoDeComprasTest {
 
 	private CarrinhoDeCompras carrinho;
+	private CarrinhoDeComprasBuilder builder;
 	
-	public CarrinhoDeComprasTest() {
+	/**
+	 *	O método inicializa é anotado com @Before para que o JUnit se encarrege de executá-lo antes
+	 *	dos testes
+	 */
+	@Before 
+	public void inicializa() {
 		this.carrinho = new CarrinhoDeCompras();
+		this.builder = new CarrinhoDeComprasBuilder();
 	}
 	
 	@Test
@@ -19,19 +27,13 @@ public class CarrinhoDeComprasTest {
 	
 	@Test
 	public void deveRetornarPrecoDoItemCasoCarrinhoSoTenhaEle() {
-		Item item = new Item("Calça Jeans", 1, 69.9);
-		carrinho.adiciona(item);
+		carrinho = builder.comItens(69.9).cria();
 		assertEquals(69.9, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
 	
 	@Test
 	public void deveRetornarPrecoDoMaiorItem() {
-		Item item2 = new Item("Camisa Polo", 1, 39.9);
-		Item item3 = new Item("Camisa Social", 1, 59.9);
-		Item item1 = new Item("Calça Jeans", 1, 69.9);
-		carrinho.adiciona(item1);
-		carrinho.adiciona(item2);
-		carrinho.adiciona(item3);
+		carrinho = builder.comItens(39.9, 59.9, 69.9).cria();		
 		assertEquals(69.9, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
 	
