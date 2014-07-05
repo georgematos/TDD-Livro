@@ -1,6 +1,6 @@
 package capitulo5;
 
-public class ClasseAleatoriaMaluca {
+public class ClasseAleatoriaMalucaAlterada {
 	
 	public static void main(String... args) {
 		
