@@ -21,4 +21,5 @@ public class CalculadoraTest {
 		assertEquals(4, new Calculadora().soma(2,2), 0.00001);
 	}
 	
+	// Comentario feito no branch master
 }
