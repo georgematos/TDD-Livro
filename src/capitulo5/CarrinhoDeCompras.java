@@ -20,4 +20,18 @@ public class CarrinhoDeCompras {
 		return Collections.unmodifiableList(itens);
 	}
 	
+	public double getMaiorPreco(CarrinhoDeCompras carrinho) {
+		
+		if(carrinho.getItens().size() == 0) return 0;
+		
+		Item itemMaior = carrinho.getItens().get(0);
+			
+		for(Item item : carrinho.getItens()) {
+			if(item.getValorTotal() > itemMaior.getValorTotal()) {
+				itemMaior = item;
+			}
+		}
+		return itemMaior.getValorTotal();
+	}
+	
 }
