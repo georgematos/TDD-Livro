@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CarrinhoDeComprasTest {
 
 	private CarrinhoDeCompras carrinho;
-	private CarrinhoDeComprasBuilder builder;
+	private CarrinhoDeComprasBuilder carrinhoBuilder;
 	
 	/**
 	 *	O método inicializa é anotado com @Before para que o JUnit se encarrege de executá-lo antes
@@ -17,7 +17,7 @@ public class CarrinhoDeComprasTest {
 	@Before 
 	public void inicializa() {
 		this.carrinho = new CarrinhoDeCompras();
-		this.builder = new CarrinhoDeComprasBuilder();
+		this.carrinhoBuilder = new CarrinhoDeComprasBuilder();
 	}
 	
 	@Test
@@ -27,13 +27,13 @@ public class CarrinhoDeComprasTest {
 	
 	@Test
 	public void deveRetornarPrecoDoItemCasoCarrinhoSoTenhaEle() {
-		carrinho = builder.comItens(69.9).cria();
+		carrinho = carrinhoBuilder.comItens(69.9).cria();
 		assertEquals(69.9, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
 	
 	@Test
 	public void deveRetornarPrecoDoMaiorItem() {
-		carrinho = builder.comItens(39.9, 59.9, 69.9).cria();		
+		carrinho = carrinhoBuilder.comItens(39.9, 59.9, 69.9).cria();		
 		assertEquals(69.9, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
 	
