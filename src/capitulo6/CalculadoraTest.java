@@ -35,7 +35,7 @@ public class CalculadoraTest {
 	}
 	
 	@Test
-	public void deveSomarUmNumeroInteiroPositivoComUmInteiroNegativo() {
+	public void deveSomarUmNumeroInteiroPositivoComUmNegativo() {
 		assertEquals(-1, calculadora.soma(1,-2), 0.00001);
 	}
 	
