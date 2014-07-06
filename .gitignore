@@ -7,5 +7,7 @@
 *.ear
 
 # Eclipse pref files #i
-
 *.prefs
+
+# Others #
+*~
