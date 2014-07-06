@@ -16,5 +16,7 @@ hs_err_pid*
 .settings/
 *~
 # Eclipse pref files #i
-
 *.prefs
+
+# Others #
+*~
