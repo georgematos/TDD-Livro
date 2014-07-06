@@ -1,0 +1,11 @@
+# Bin Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse pref files #i
+
+*.prefs
