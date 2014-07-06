@@ -21,6 +21,21 @@ public class CarrinhoDeComprasTest {
 	}
 	
 	@Test
+	public void deveAdicionarItens() {
+		// Garante que o carrinho está vazio antes de testar o método adiciona
+		assertEquals(0, carrinho.getItens().size());
+		
+		Item item = new Item("Item", 1 , 199.0);
+		carrinho.adiciona(item);
+		
+		// Testa se o item foi adicionado ao carrinho
+		assertEquals(1, carrinho.getItens().size());
+		
+		// Teste se o item adicionado ao carrinho é o mesmo objeto retornado
+		assertEquals(item, carrinho.getItens().get(0));
+	}
+	
+	@Test
 	public void deveRetornarZeroCasoCarrinhoVazio() {
 		assertEquals(0, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
@@ -33,7 +48,7 @@ public class CarrinhoDeComprasTest {
 	
 	@Test
 	public void deveRetornarPrecoDoMaiorItem() {
-		carrinho = carrinhoBuilder.comItens(39.9, 59.9, 69.9).cria();		
+		carrinho = carrinhoBuilder.comItens(39.9, 59.9, 69.9).cria();
 		assertEquals(69.9, carrinho.getMaiorPreco(carrinho), 0.00001);
 	}
 	
