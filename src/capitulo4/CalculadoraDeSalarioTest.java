@@ -12,7 +12,7 @@ public class CalculadoraDeSalarioTest {
 	}
 	
 	@Test
-	public void desenvolvedorComSalarioMenorQue3000() {
+	public void deveCalcularSalarioParaDesenvolvedoresComSalarioAbaixoDoLimite() {
 		
 		// Execução da ação sob teste
 		double salario = calculadora.calcularSalario(new Funcionario("Ciclano", 1500.0, Cargo.DESENVOLVEDOR));
@@ -23,7 +23,7 @@ public class CalculadoraDeSalarioTest {
 	}
 	
 	@Test
-	public void desenvolvedorComSalarioMaiorQue3000() {
+	public void deveCalcularSalarioParaDesenvolvedoresComSalarioAcimaDoLimite() {
 		
 		double salario = calculadora.calcularSalario(new Funcionario("Fulano", 4000.0, Cargo.DESENVOLVEDOR));
 		assertEquals(3200.0, salario, 0.00001);
