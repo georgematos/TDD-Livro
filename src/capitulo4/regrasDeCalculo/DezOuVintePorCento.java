@@ -1,7 +1,5 @@
 package capitulo4.regrasDeCalculo;
 
-
-
 public class DezOuVintePorCento extends RegraDeCalculo {
 
 	@Override
