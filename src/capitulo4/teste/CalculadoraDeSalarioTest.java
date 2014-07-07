@@ -1,7 +1,12 @@
-package capitulo4;
+package capitulo4.teste;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import capitulo4.CalculadoraDeSalario;
+import capitulo4.Cargo;
+import capitulo4.Funcionario;
 
 public class CalculadoraDeSalarioTest {
 
@@ -33,16 +38,16 @@ public class CalculadoraDeSalarioTest {
 	@Test
 	public void deveCalcularSalarioParaDBAsComSalarioAbaixoDoLimite() {
 		
-		double salario = calculadora.calcularSalario(new Funcionario("Beltrano", 500.0, Cargo.DBA));
-		assertEquals(425.0, salario, 0.00001);
+		double salario = calculadora.calcularSalario(new Funcionario("Beltrano", 1200.0, Cargo.DBA));
+		assertEquals(1020.0, salario, 0.00001);
 		
 	}
 	
 	@Test
 	public void deveCalcularSalarioParaDBAsComSalarioAcimaDoLimite() {
 		
-		double salario = calculadora.calcularSalario(new Funcionario("Juliano", 1500.0, Cargo.DBA));
-		assertEquals(1125.0, salario, 0.00001);
+		double salario = calculadora.calcularSalario(new Funcionario("Juliano", 1600.0, Cargo.DBA));
+		assertEquals(1200.0, salario, 0.00001);
 		
 	}
 	
