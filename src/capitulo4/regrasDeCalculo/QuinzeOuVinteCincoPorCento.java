@@ -1,7 +1,5 @@
 package capitulo4.regrasDeCalculo;
 
-
-
 public class QuinzeOuVinteCincoPorCento extends RegraDeCalculo {
 
 	@Override
@@ -18,5 +16,5 @@ public class QuinzeOuVinteCincoPorCento extends RegraDeCalculo {
 	protected double porcentagemBase() {
 		return 0.85;
 	}
-	
+
 }
