@@ -1,23 +1,23 @@
 package capitulo8;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class GeradorDeNotaFiscal {
 	
-	private NotaFiscalDao dao;
-	private SAP sap;
+	private List<AcaoAposGerarNota> acoes;
 	
-	public GeradorDeNotaFiscal(NotaFiscalDao dao, SAP sap) {
-		this.dao = dao;
-		this.sap = sap;
+	public GeradorDeNotaFiscal(List<AcaoAposGerarNota> acoes) {
+		this.acoes = acoes;
 	}
 
 	public NotaFiscal gerarNota(Pedido pedido) {
 		
 		NotaFiscal nf = new NotaFiscal(pedido.getCliente(), pedido.getValorTotal() * 0.94, Calendar.getInstance());
 		
-		dao.persiste(nf);
-		sap.envia(nf);
+		for (AcaoAposGerarNota acao : acoes) {
+			acao.executa(nf);;
+		}
 		
 		return nf;
 	}
