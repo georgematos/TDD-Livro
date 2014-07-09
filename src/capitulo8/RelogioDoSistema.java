@@ -4,26 +4,28 @@ import java.util.Calendar;
 
 public class RelogioDoSistema implements Relogio {
 	
-	private static Calendar agora = Calendar.getInstance();
 	
 	public Calendar hoje() {
 		
-		if (agora.get(Calendar.DAY_OF_WEEK) == 1) {
-			agora.add(Calendar.DAY_OF_WEEK, 1);
-			return agora;
-		}
+		Calendar agora = Calendar.getInstance();
 		
-		if (agora.get(Calendar.DAY_OF_WEEK) == 7) {
-			agora.add(Calendar.DAY_OF_WEEK, 2);
-			return agora;
-		}
-		
-		return agora;
+		return trataData(agora);
 
 	}
 	
 	@Override
 	public Calendar hoje(Calendar data) {
+		
+		return trataData(data);
+	
+	}
+	
+	/**
+	 * Verifica se a data recebida é um fim-de-semana, caso seja, retorna a próxima segunda-feira
+	 * @param data
+	 * @return data
+	 */
+	private Calendar trataData(Calendar data) {
 		
 		if (data.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
 			data.add(Calendar.DATE, 1);
