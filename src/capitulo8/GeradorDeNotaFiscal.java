@@ -12,8 +12,10 @@ public class GeradorDeNotaFiscal {
 		this.relogio = relogio;
 	}
 	
+	// Alguns testes não passam um relógio para o Gerador, para não quebrá-los 
 	public GeradorDeNotaFiscal(List<AcaoAposGerarNota> acoes) {
-		this(acoes, new RelogioDoSistema());
+		this.acoes = acoes;
+		this.relogio = new RelogioDoSistema();
 	}
 
 	public NotaFiscal gerarNota(Pedido pedido) {
