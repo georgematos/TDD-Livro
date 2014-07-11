@@ -20,11 +20,6 @@ public class RelogioDoSistema implements Relogio {
 	
 	}
 	
-	/**
-	 * Verifica se a data recebida é um fim-de-semana, caso seja, retorna a próxima segunda-feira
-	 * @param data
-	 * @return data
-	 */
 	private Calendar trataData(Calendar data) {
 		
 		if (data.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
