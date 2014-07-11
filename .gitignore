@@ -3,6 +3,7 @@
 
 # Bin Files #
 *.class
+/bin
 
 # Package Files #
 *.jar
