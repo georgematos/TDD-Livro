@@ -7,11 +7,12 @@ import java.util.Calendar;
 import org.junit.Before;
 import org.junit.Test;
 
+import capitulo8.Relogio;
 import capitulo8.RelogioDoSistema;
 
 public class RelogioDoSistemaTest {
 
-	private RelogioDoSistema relogio;
+	private Relogio relogio;
 	
 	@Before
 	public void inicia() {
@@ -41,7 +42,7 @@ public class RelogioDoSistemaTest {
 	public void deveRetornarDataPassadaParaProximaSegundaSeFimDeSemana() {
 		
 		Calendar dataFimDeSemana = Calendar.getInstance();
-		dataFimDeSemana.set(2014, 6, 7);
+		dataFimDeSemana.set(2014, 6, 6);
 		
 		Calendar segundaFeira = Calendar.getInstance();
 		segundaFeira.set(2014, 6, 7);
