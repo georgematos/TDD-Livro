@@ -1,17 +1,25 @@
 package capitulo9;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ProcessadorDeBoletosTest {
 	
+	private ProcessadorDeBoletos processador;
+	
+	@Before
+	public void inicia() {
+		processador = new ProcessadorDeBoletos();
+	}
+	
 	@Test
 	public void deveProcessarPagamentoViaBoletoUnico() {
-		ProcessadorDeBoletos processador = new ProcessadorDeBoletos();
 		
 		Fatura fatura = new Fatura("Cliente", 150.0);
 		Boleto b1 = new Boleto(150.0);
@@ -25,7 +33,6 @@ public class ProcessadorDeBoletosTest {
 	
 	@Test
 	public void deveProcessarPagamentoViaMuitosBoletos() {
-		ProcessadorDeBoletos processador = new ProcessadorDeBoletos();
 		
 		Fatura fatura = new Fatura("Cliente", 300.0);
 		Boleto b1 = new Boleto(100.0);
@@ -41,7 +48,6 @@ public class ProcessadorDeBoletosTest {
 	
 	@Test
 	public void deveMarcarFaturaComoPagaCasoBoletoUnicoPagueTudo() {
-		ProcessadorDeBoletos processador = new ProcessadorDeBoletos();
 		
 		Fatura fatura = new Fatura("Cliente", 150.0);
 		Boleto b1 = new Boleto(150.0);
@@ -50,6 +56,19 @@ public class ProcessadorDeBoletosTest {
 		processador.processa(boletos, fatura);
 		
 		assertTrue(fatura.isPago());
+		
+	}
+	
+	@Test
+	public void naoDeveMarcarFaturaComoPagaCasoBoletoPagueParteDaFatura() {
+		
+		Fatura fatura = new Fatura("Cliente", 150.0);
+		Boleto b1 = new Boleto(140.0);
+		List<Boleto> boletos = Arrays.asList(b1);
+		
+		processador.processa(boletos, fatura);
+		
+		assertTrue(!fatura.isPago());
 		
 	}
 
