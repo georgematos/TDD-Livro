@@ -9,12 +9,27 @@ public class Fatura {
 	private double valor;
 	private List<Pagamento> pagamentos;
 	private boolean pago;
+	double totalPago;
 
 	public Fatura(String cliente, double valor) {
 		this.cliente = cliente;
 		this.valor = valor;
 		pagamentos = new ArrayList<>();
 		pago = false;
+	}
+	
+	public void pagar(Pagamento pagamento) {
+		
+		pagamentos.add(pagamento);
+		
+		for (Pagamento p : pagamentos) {			
+			totalPago += p.getValor();
+		}
+		
+		if(totalPago >= getValor()) {
+			setPago(true);
+		}
+		
 	}
 	
 	public void setPago(boolean pago) {
