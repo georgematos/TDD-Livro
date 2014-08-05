@@ -20,16 +20,8 @@ public class MaiorEMenor {
 		return menor;
 	}
 
-	public void setMenor(Produto menor) {
-		this.menor = menor;
-	}
-
 	public Produto getMaior() {
 		return maior;
-	}
-
-	public void setMaior(Produto maior) {
-		this.maior = maior;
 	}
 
 }
