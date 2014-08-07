@@ -1,4 +1,4 @@
-package apresentacao.teste2;
+package apresentacao;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +13,14 @@ public class CalculadoraDeMediaTest {
 	public void inicio() {
 		calculadora = new CalculadoraDeMedia();
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void deveRetornarExcecaoCasoNenhumArgumentoForPassado() {
 
+		calculadora.media();
+
+	}
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void deveRetornarExcecaoCasoApenasUmNumeroForPassado() {
 		
