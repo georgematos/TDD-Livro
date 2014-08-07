@@ -17,14 +17,14 @@ public class CalculadoraDeMediaTest {
 	@Test
 	public void deveCalcularMediaDeDoisNumeros() {
 		
-		assertEquals(8.5, calculadora.media(9.0, 8.0), 0.1);
+		assertEquals((9.0 + 8.0) / 2, calculadora.media(9.0, 8.0), 0.00001);
 		
 	}
 
 	@Test
 	public void deveCalcularMediaDeTresNumeros() {
 
-		assertEquals(8.3, calculadora.media(9.0, 8.6, 7.4), 0.1);
+		assertEquals((9.0 + 8.6 + 7.4) / 3, calculadora.media(9.0, 8.6, 7.4), 0.00001);
 
 	}
 
